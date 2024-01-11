@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const userSchema = mongoose.Schema({
+const userSchema = new Schema({
   firstName: {
     type: String,
     required: [true, "firstname is required, but recived an empty value"],
@@ -19,4 +19,4 @@ const userSchema = mongoose.Schema({
   },
 });
 
-export const User = mongoose.model("user", userSchema);
+export const User = model("user", userSchema);

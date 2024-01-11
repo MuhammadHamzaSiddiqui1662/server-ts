@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const testSchema = mongoose.Schema({
+const testSchema = new Schema({
   testFeild: {
     type: String,
     required: [true, "testFeild is required, but received an empty value"],
   },
 });
 
-export const Test = mongoose.model("test", testSchema);
+export const Test = model("test", testSchema);
