@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { isEmail } from "validator";
 
 const userSchema = new Schema({
   firstName: {
@@ -12,10 +13,13 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: [true, "email is required, but recived an empty value"],
+    unique: true,
+    validate: [isEmail, "Please enter a valid email"],
   },
   password: {
     type: String,
     required: [true, "password is required, but recived an empty value"],
+    minlength: [3, "minimun password length is 6 characters"],
   },
 });
 

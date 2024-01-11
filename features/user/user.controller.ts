@@ -5,6 +5,7 @@ import {
   getUserWithEmail,
   getUserWithEmailAndPassword,
 } from "./user.service";
+import { handleErrors } from "../../utils";
 
 const router = express.Router();
 
@@ -38,7 +39,8 @@ router.post("/", async (req, res) => {
     });
     res.status(200).json(user);
   } catch (err) {
-    res.status(400).json({ message: err });
+    const error = handleErrors(err);
+    res.status(400).json({ message: error });
   }
 });
 
