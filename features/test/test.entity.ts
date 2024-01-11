@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const testSchema = mongoose.Schema({
   testFeild: {
     type: String,
-    required: true,
+    required: [true, "testFeild is required, but received an empty value"],
   },
 });
 

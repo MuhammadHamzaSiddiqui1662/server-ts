@@ -3,19 +3,19 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
+    required: [true, "firstname is required, but recived an empty value"],
   },
   lastName: {
     type: String,
-    required: true,
+    required: [true, "lastName is required, but recived an empty value"],
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "email is required, but recived an empty value"],
   },
   password: {
     type: String,
-    required: true,
+    required: [true, "password is required, but recived an empty value"],
   },
 });
 
