@@ -1,9 +1,11 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import TestRouter from "./features/test/test.controller";
 import UserRouter from "./features/user/user.controller";
+import CookiesRouter from "./features/cookies/cookies.controller";
 
 const app = express();
 dotenv.config();
@@ -11,6 +13,7 @@ dotenv.config();
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 // Routes
 app.get("/", (req, res) => {
@@ -20,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.use("/test", TestRouter);
 app.use("/user", UserRouter);
+app.use("/cookies", CookiesRouter);
 
 // Connect to DB
 // uncomment below line after adding MONGODB_URI or DB_CONNECTION string
